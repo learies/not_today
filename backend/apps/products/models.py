@@ -1,6 +1,7 @@
 from django.db import models
 
 from apps.core.models import BaseModel
+from apps.products.utils import get_upload_to
 
 
 class Category(BaseModel):
@@ -26,7 +27,7 @@ class Category(BaseModel):
     )
     image = models.ImageField(
         'Изображение',
-        upload_to='category_image/',
+        upload_to=get_upload_to,
         blank=True,
         help_text='Добавить изображение к категории.',
     )
