@@ -6,7 +6,7 @@ from .views import CategoryViewSet
 app_name = 'api'
 
 router_v1 = SimpleRouter()
-router_v1.register('сategories', CategoryViewSet, basename='сategories')
+router_v1.register('categories', CategoryViewSet, basename='categories')
 
 urlpatterns = [
     path('v1/', include(router_v1.urls)),
