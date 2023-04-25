@@ -10,7 +10,13 @@ def get_upload_to(instance: Any, filename: str) -> str:
 
     Returns:
         Строку, которая состоит из объединения строк
-        "products/categories/", instance.slug и filename.
+        "products/", instance.category.slug, instance.slug и filename.
+
+        Если у instance нет атрибута slug, возникает AttributeError
+        который вернёт "products/categories/", instance.slug и filename.
     """
 
-    return f'products/categories/{instance.slug}/{filename}'
+    try:
+        return f'products/{instance.category.slug}/{instance.slug}/{filename}'
+    except AttributeError:
+        return f'products/categories/{instance.slug}/{filename}'
