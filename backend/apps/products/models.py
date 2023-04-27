@@ -9,11 +9,13 @@ class Category(BaseModel):
 
     title = models.CharField(
         'Название',
+        unique=True,
         max_length=256,
         help_text='Добавить название категории не блее 256 символов.',
     )
     slug = models.SlugField(
         'Слаг',
+        unique=True,
         max_length=256,
         help_text=(
             'Добавить слаг не блее 256 символов. '
@@ -52,11 +54,13 @@ class Product(BaseModel):
     )
     title = models.CharField(
         'Название',
+        unique=True,
         max_length=256,
         help_text='Добавить название товара не более 256 символов.',
     )
     slug = models.SlugField(
         'Слаг',
+        unique=True,
         max_length=256,
         help_text=(
             'Добавить слаг не более 256 символов. '
